@@ -1,6 +1,12 @@
+'''
+Functions for visualization purposes.
+'''
+
+# libs
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
+import seaborn as sns
 
 
 def choose_grid(nr):
@@ -73,3 +79,10 @@ def draw_simple_hist(ax, title, xlabel, values, bins):
     ax.set_xlabel(xlabel)
     ax.set_ylabel("Counting")
     ax.hist(values, bins=bins)
+
+
+def heatmap(ax, matrix, title, xlabel, ylabel):
+    sns.heatmap(matrix, annot=True, ax=ax, cmap='Reds')
+    ax.set_title(title)
+    ax.set_xlabel(xlabel)
+    ax.set_ylabel(ylabel)
