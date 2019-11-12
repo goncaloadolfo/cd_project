@@ -24,15 +24,21 @@ CONTINGENCY_MATRIX_KEY = "contingency_matrix"
 # parameters tuning
 def kmeans_cohesion_vs_nrclusters(preprocessed_data: np.ndarray, k_list: list):
     cohesions = []
+    silhouettes = []
 
     # train kmeans with different #clusters and calculate silhouette score
     for k in k_list:
-        kmeans_obj = KMeans(n_clusters=k, max_iter=300).fit(preprocessed_data)
+        kmeans_obj = KMeans(n_clusters=k).fit(preprocessed_data)
         cohesions.append(kmeans_obj.inertia_)
+        silhouettes.append(metrics.silhouette_score(preprocessed_data, kmeans_obj.labels_))
 
     # plot
     plt.figure()
     line_chart(plt.gca(), k_list, cohesions, "Cohesion by number of clusters", "#clusters", "Cohesion")
+    plt.grid()
+
+    plt.figure()
+    line_chart(plt.gca(), k_list, silhouettes, "Silhouette by number of clusters", "#clusters", "Silhouette")
     plt.grid()
 
 
