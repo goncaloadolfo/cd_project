@@ -5,11 +5,11 @@ Clustering functions.
 # libs
 import numpy as np
 import matplotlib.pyplot as plt
-from sklearn.cluster import KMeans
 from sklearn import metrics
+from sklearn.feature_selection import SelectKBest, f_classif
 
 # own libs
-from vis_functions import line_chart, bar_chart, heatmap
+from vis_functions import line_chart, bar_chart, heatmap, scatter_plot
 from utils import euclidean_distance
 
 # globals
@@ -20,30 +20,8 @@ PURITY_KEY = "purity"
 CONTINGENCY_MATRIX_KEY = "contingency_matrix"
 
 
-#########
-# parameters tuning
-def kmeans_cohesion_vs_nrclusters(preprocessed_data: np.ndarray, k_list: list):
-    cohesions = []
-    silhouettes = []
-
-    # train kmeans with different #clusters and calculate silhouette score
-    for k in k_list:
-        kmeans_obj = KMeans(n_clusters=k).fit(preprocessed_data)
-        cohesions.append(kmeans_obj.inertia_)
-        silhouettes.append(metrics.silhouette_score(preprocessed_data, kmeans_obj.labels_))
-
-    # plot
-    plt.figure()
-    line_chart(plt.gca(), k_list, cohesions, "Cohesion by number of clusters", "#clusters", "Cohesion")
-    plt.grid()
-
-    plt.figure()
-    line_chart(plt.gca(), k_list, silhouettes, "Silhouette by number of clusters", "#clusters", "Silhouette")
-    plt.grid()
-
-
 ######
-# evaluation
+# auxiliary functions for clustering evaluation
 def calculate_centroids(data: np.ndarray, labels: np.ndarray, unique_labels: np.ndarray) -> list:
     return [np.mean(data[labels == label], axis=0) for label in unique_labels]
 
@@ -58,6 +36,8 @@ def neareast_centroid(centroid_i: int, centroids: np.ndarray) -> int:
             return centroids[dist_ind]
 
 
+######
+# clustering evaluation
 def evaluate_clustering_alg(alg_obj, preprocessed_data: np.ndarray, targets: np.ndarray) -> tuple:
     # apply clustering alg and get label of each sample
     alg_obj.fit(preprocessed_data)
@@ -108,7 +88,7 @@ def evaluate_clustering_alg(alg_obj, preprocessed_data: np.ndarray, targets: np.
         CONTINGENCY_MATRIX_KEY: contingency_matrix
     }
 
-    return results_dict, unique_labels
+    return results_dict, unique_labels, labels
 
 
 #######
@@ -137,3 +117,26 @@ def plot_results(results: dict, labels_per_sample: np.ndarray, cluster_labels: n
         heatmap(axs[2, 1], results[CONTINGENCY_MATRIX_KEY], "Contingency Matrix", "Cluster", "Target")
 
     fig.tight_layout()
+
+
+def clusters_vis(data: np.ndarray, target: np.ndarray, cluster_labels: np.ndarray, colors: list):
+    # data reduction
+    feature_selector = SelectKBest(f_classif, k=2)
+    data_2d = feature_selector.fit_transform(data, target)
+
+    fig, ax = plt.subplots(1, 2)
+    # ground truth vis
+    unique_target = np.unique(target)
+    for target_i in range(len(unique_target)):
+        data_from_ctarget = data_2d[target == unique_target[target_i]]
+        scatter_plot(ax[0], data_from_ctarget[:, 0], data_from_ctarget[:, 1], "GT Scatter",
+                     "feature 1", "feature 2", "target " + str(unique_target[target_i]), colors[target_i])
+    ax[0].legend()
+
+    # clusters vis
+    clusters = np.unique(cluster_labels)
+    for cluster_i in range(len(clusters)):
+        data_from_ccluster = data_2d[cluster_labels == clusters[cluster_i]]
+        scatter_plot(ax[1], data_from_ccluster[:, 0], data_from_ccluster[:, 1], "Clusters",
+                     "feature 1", "feature 2", "cluster " + str(clusters[cluster_i]), colors[cluster_i])
+    ax[1].legend()

@@ -86,3 +86,10 @@ def heatmap(ax, matrix, title, xlabel, ylabel):
     ax.set_title(title)
     ax.set_xlabel(xlabel)
     ax.set_ylabel(ylabel)
+
+
+def scatter_plot(ax: plt.Axes, xvalues: list, yvalues: list, title: str, xlabel: str, ylabel: str, label: str, color):
+    ax.set_title(title)
+    ax.set_xlabel(xlabel)
+    ax.set_ylabel(ylabel)
+    ax.scatter(xvalues, yvalues, color=color, label=label)
