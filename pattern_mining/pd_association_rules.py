@@ -1,5 +1,5 @@
 '''
-Pattern mining results.
+Obtaining association rules for PD dataset.
 '''
 
 # libs
@@ -8,10 +8,16 @@ from sklearn.feature_selection import f_classif
 # own libs
 from pattern_mining.pattern_mining_functions import *
 from utils import print_return_variable
+from data_exploration.multi_analysis_functions import put_away_vars
 
 
 data = pd.read_csv("../datasets/pd_speech_features.csv")
-y = data["class"].values
+y = data.pop('class').values
+
+# remove high correlated variables
+vars_to_remove = put_away_vars(data.corr(), 0.8)
+col_names_to_remove = data.columns[vars_to_remove]
+new_df = data.drop(columns=col_names_to_remove)
 
 # pattern mining parameters
 print("\n### Pattern mining parameters")
@@ -26,10 +32,10 @@ min_conf = print_return_variable("Min confidence: ", 0.9)
 min_ant_items = print_return_variable("Min of items in antecedents itemset: ", 2)
 
 # get results
-selected_features, dummified_df, frequent_patterns, _, rules = pm_system(data, y, k_features, selection_measure,
-                                                                             discretize_function, bins,
-                                                                             disc_needless_cols, fp_mining_args,
-                                                                             min_conf, min_ant_items)
+selected_features, dummified_df, frequent_patterns, _, rules = pm_system(new_df, y, k_features, selection_measure,
+                                                                         discretize_function, bins,
+                                                                         disc_needless_cols, fp_mining_args,
+                                                                         min_conf, min_ant_items)
 
 # results visualization
 print("\n### Selected features")
