@@ -83,10 +83,10 @@ def scatter_plots(data, target, correlation_matrix, criteria):
 
 
 def draw_heatmap(matrix, xticklabels, yticklabels, annot, cmap, title, xlabel, ylabel, axes):
-    sns.heatmap(matrix, xticklabels=xticklabels, yticklabels=yticklabels, annot=annot, cmap='Reds', ax=axes)
+    sns.heatmap(matrix, xticklabels=xticklabels, yticklabels=yticklabels, annot=annot, cmap=cmap, ax=axes)
     axes.set_title(title)
-    axes.set_yticks(yticklabels)
-    axes.set_xticks(xticklabels)
+    axes.set_yticks(range(len(yticklabels)))
+    axes.set_xticks(range(len(xticklabels)))
     axes.set_xlabel(xlabel)
     axes.set_ylabel(ylabel)
 

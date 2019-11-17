@@ -1,5 +1,5 @@
 '''
-Multivariable analysis for PD data set.
+Multivariate analysis for PD data set.
 '''
 
 # libs
