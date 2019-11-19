@@ -1,18 +1,17 @@
-'''
-KMeans algorithm results for Cover Type data set.
-'''
+"""
+K-Means results Parkinson Decease Data set.
+
+Tested pre-processing: normalization (StandardScaler), outlier removing with DBSCAN,
+PCA for data reduction/transformation
+"""
 
 # libs
-import numpy as np
-import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
-from sklearn.cluster import KMeans
-from sklearn import metrics
 
 # own libs
-from clustering.clustering_functions import evaluate_clustering_alg, plot_results
-from utils import undersampling_ct
-from vis_functions import line_chart
+from clustering.clustering_functions import *
+from utils import undersampling_ct, dbscan_outliers_analysis_plot, nearest_nb_distance_plot, \
+    pca_cumulative_variance_plot
 
 
 #####
@@ -25,30 +24,26 @@ data_array = ct_data.values
 # pre processing
 normalized_data = StandardScaler().fit_transform(data_array)
 
+nearest_nb_distance_plot(normalized_data[:8000])
+dbscan_outliers_analysis_plot(normalized_data, eps_list=[0.3, 0.5, 0.7, 0.9, 1.1, 1.3, 1.5, 1.7], min_samples=3)
+dbscan_obj = DBSCAN(eps=0.7, min_samples=3)
+dbscan_obj.fit(normalized_data)
+data_without_out = normalized_data[dbscan_obj.labels_ != -1]
+new_target = target[dbscan_obj.labels_ != -1]
+
+pca_obj = pca_cumulative_variance_plot(data_without_out)
+first_components = pca_obj.components_  # 100% variance ratio
+reduced_data = np.dot(data_without_out, first_components.T)
+
 #####
-# paramater tuning - comment this if necessary - k discovery
-k_list = np.arange(10, 40, 2)
-cohesions = []
-silhouettes = []
-
-for k in k_list:
-    print("currently testing k=" + str(k))
-    kmeans_obj = KMeans(n_clusters=k).fit(normalized_data)
-    cohesions.append(kmeans_obj.inertia_)
-    silhouettes.append(metrics.silhouette_score(normalized_data, kmeans_obj.labels_))
-
-plt.figure()
-line_chart(plt.gca(), k_list, cohesions, "Cohesion by number of clusters", "#clusters", "Cohesion")
-plt.grid()
-
-plt.figure()
-line_chart(plt.gca(), k_list, silhouettes, "Silhouette by number of clusters", "#clusters", "Silhouette")
-plt.grid()
+# parameter tuning
+k_analysis(reduced_data, list(range(2, 40, 2)))
 
 #####
 # fixed algorithm evaluation
 kmeans_obj = KMeans(n_clusters=25)
-results, unique_labels, labels = evaluate_clustering_alg(kmeans_obj, normalized_data, target)
+results, unique_labels, labels = evaluate_clustering_alg(kmeans_obj, reduced_data, new_target)
 plot_results(results, kmeans_obj.labels_, unique_labels, "KMeans")
+clusters_vis(reduced_data, new_target, labels, plt.cm.rainbow(np.linspace(0, 1, 25)))
 
 plt.show()

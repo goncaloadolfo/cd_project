@@ -1,6 +1,6 @@
-'''
-Obtaining association rules for PD dataset.
-'''
+"""
+Association rules for Parkinson Decease Data Set.
+"""
 
 # libs
 from sklearn.feature_selection import f_classif

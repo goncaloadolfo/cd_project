@@ -1,6 +1,6 @@
-'''
-Multivariate analysis for Cover type data set.
-'''
+"""
+Multivariate analysis for Cover type Data Set.
+"""
 
 # libs
 import numpy as np
