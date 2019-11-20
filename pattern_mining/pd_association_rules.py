@@ -57,9 +57,26 @@ fsets_per_supp(dummified_df, np.arange(0.4, 1.001, 0.1))
 # exclusive rules between classes
 rules_per_class = rules_per_target(dummified_df, y, 0.6, 0.9, 2)
 
-print("#####\n")
+print("#####")
+on_columns = ['antecedents', 'consequents']
+
 print("# Exclusive association rules")
 print("numbers of ars found for patients without parkinson decease:", rules_per_class[0].shape[0])
 print("numbers of ars found for patients with parkinson decease:", rules_per_class[1].shape[0])
+print("number of common rules:", rules_per_class[0].merge(rules_per_class[1], how='inner', on=on_columns).shape[0])
+print("\n")
 
-common_ars = rules_per_class[0].merge(rules_per_class[1], how='inner', on=['antecedents', 'consequents'])
+left_join = rules_per_class[0].merge(rules_per_class[1], how='left', on=on_columns)
+right_join = rules_per_class[0].merge(rules_per_class[1], how='right', on=on_columns)
+
+npd_exclusive_rules = left_join.loc[~left_join['support_y'].notnull()]
+pd_exclusive_rules = right_join.loc[~right_join['support_x'].notnull()]
+
+npd_exclusive_rules = npd_exclusive_rules.iloc[:, :9]
+aux = [0, 1] + list(range(9, 16))
+pd_exclusive_rules = pd_exclusive_rules.iloc[:, aux]
+
+print("Exclusive rules for parkinson patients (some)")
+pretty_print_rules(npd_exclusive_rules, ['confidence_x'], False, 10)
+print("Exclusive rules for non parkinson patients (some)")
+pretty_print_rules(pd_exclusive_rules, ['confidence_y'], False, 10)
