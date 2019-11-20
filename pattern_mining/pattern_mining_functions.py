@@ -88,6 +88,20 @@ def association_rules_mining(fp_mining_args: list, min_confidence: float, min_an
     return rules, frequent_patterns, min_supp
 
 
+def rules_per_target(dummy_df: pd.DataFrame, target: np.ndarray, min_supp: float, min_conf: float,
+                     min_ant_items: int) -> list:
+    ars_per_target = []
+    unique_target = np.unique(target)
+
+    for t in unique_target:
+        samples_rows = np.where(target == t)[0]
+        target_samples = dummy_df.iloc[samples_rows]
+        rules, _, _ = association_rules_mining([target_samples, min_supp], min_conf, min_ant_items)
+        ars_per_target.append(rules)
+
+    return ars_per_target
+
+
 #########
 # Aux functions for results
 def pretty_print_fsets(freqsets_df: pd.DataFrame, order: bool, n: int) -> None:
