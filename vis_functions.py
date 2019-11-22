@@ -102,8 +102,8 @@ def draw_simple_hist(ax, title, xlabel, values, bins):
     ax.hist(values, bins=bins)
 
 
-def heatmap(ax, matrix, title, xlabel, ylabel):
-    sns.heatmap(matrix, annot=True, ax=ax, cmap='Reds')
+def heatmap(ax, matrix, title, xlabel, ylabel, annot=True):
+    sns.heatmap(matrix, annot=annot, ax=ax, cmap='Reds')
     ax.set_title(title)
     ax.set_xlabel(xlabel)
     ax.set_ylabel(ylabel)

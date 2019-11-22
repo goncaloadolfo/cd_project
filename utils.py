@@ -4,6 +4,13 @@ Auxiliar functions to other modules.
 
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
+from sklearn.cluster import DBSCAN
+from sklearn.decomposition import PCA
+from scipy.spatial import distance_matrix
+
+# own libs
+from vis_functions import line_chart
 
 
 def print_return_variable(prefix, value):
@@ -106,3 +113,42 @@ def load_and_undersample_ct(ct_path):
 
     # concatenate dfs
     return pd.concat(undersampled_dfs)
+
+
+def dbscan_outliers_analysis_plot(data: np.ndarray, eps_list: list, min_samples: int) -> None:
+    outliers_found = []
+
+    for eps in eps_list:
+        print("getting outliers with eps=", eps)
+        dbscan_obj = DBSCAN(eps=eps, min_samples=min_samples)
+        dbscan_obj.fit(data)
+        outliers_found.append(np.sum(dbscan_obj.labels_ == -1))
+
+    plt.figure()
+    line_chart(plt.gca(), eps_list, outliers_found, "Outliers found per eps used", "eps", "#outliers")
+
+
+def pca_cumulative_variance_plot(data: np.ndarray) -> PCA:
+    pca_obj = PCA(n_components=min(data.shape[0], data.shape[1]))
+    pca_obj.fit(data)
+    explained_variance_ratio = pca_obj.explained_variance_ratio_
+    variance_ratio_cumsum = np.cumsum(explained_variance_ratio)
+
+    plt.figure()
+    line_chart(plt.gca(), np.arange(len(explained_variance_ratio)), variance_ratio_cumsum,
+               "Cumulative variance ratio in PC", "principal component", "cumulative variance ratio")
+
+    return pca_obj
+
+
+def nearest_nb_distance_plot(data: np.ndarray):
+    nr_samples = data.shape[0]
+    distances = distance_matrix(data, data, p=2)
+
+    identity_matrix = np.identity(nr_samples, dtype=bool)
+    identity_matrix = ~identity_matrix
+    distances_without_diagonal = distances[identity_matrix].reshape((nr_samples, nr_samples - 1))
+    nn_distance = np.min(distances_without_diagonal, axis=1)
+
+    plt.figure()
+    line_chart(plt.gca(), np.arange(nr_samples), nn_distance, "Nearest neighbour distance", "data point", "distance")

@@ -6,6 +6,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 from sklearn import metrics
 from sklearn.feature_selection import SelectKBest, f_classif
+from sklearn.cluster import KMeans, DBSCAN
 
 from utils import euclidean_distance
 from vis_functions import line_chart, bar_chart, heatmap, scatter_plot
@@ -16,6 +17,47 @@ SEPARATION_KEY = "separation"
 SILHOUETTE_KEY = "silhouette"
 PURITY_KEY = "purity"
 CONTINGENCY_MATRIX_KEY = "contingency_matrix"
+RAND_INDEX_KEY = "adjusted_random_index"
+
+
+#####
+# parameter tuning
+def k_analysis(data: np.ndarray, k_list: list) -> None:
+    cohesions = []
+    silhouettes = []
+
+    for k in k_list:
+        print("testing k=", k)
+        kmeans_obj = KMeans(n_clusters=k).fit(data)
+        cohesions.append(kmeans_obj.inertia_)
+        silhouettes.append(metrics.silhouette_score(data, kmeans_obj.labels_))
+
+    plt.figure()
+    line_chart(plt.gca(), k_list, cohesions, "Cohesion by number of clusters", "#clusters", "Cohesion")
+    plt.grid()
+
+    plt.figure()
+    line_chart(plt.gca(), k_list, silhouettes, "Silhouette by number of clusters", "#clusters", "Silhouette")
+    plt.grid()
+
+
+def dbscan_parameters(data: np.ndarray, target: np.ndarray, eps_list: list, min_samples_list: list) -> None:
+    for eps in eps_list:
+        for min_samples in min_samples_list:
+            dbscan = DBSCAN(eps=eps, min_samples=min_samples)
+            dbscan.fit(data)
+            labels = dbscan.labels_
+            unique_labels = np.unique(labels)
+
+            print("eps: " + str(eps) + ", min samples: " + str(min_samples))
+
+            if len(unique_labels) > 1:
+                print("clusters: " + str(np.unique(labels)))
+                print("silhouette: " + str(metrics.cluster.silhouette_score(data, labels)))
+                print("adjusted rand index: " + str(metrics.adjusted_rand_score(target, labels)) + "\n")
+
+            else:
+                print("all data points were considered outliers...\n")
 
 
 # auxiliary functions for clustering evaluation
@@ -75,13 +117,16 @@ def evaluate_clustering_alg(alg_obj, preprocessed_data: np.ndarray, targets: np.
     if targets is not None:
         contingency_matrix = metrics.cluster.contingency_matrix(targets, labels)
 
+    arandom_index = metrics.cluster.adjusted_rand_score(targets, labels)
+
     # create and return dict with results per cluster
     results_dict = {
         COHESION_KEY: cohesions,
         SEPARATION_KEY: separations,
         SILHOUETTE_KEY: silhouettes,
         PURITY_KEY: purity,
-        CONTINGENCY_MATRIX_KEY: contingency_matrix
+        CONTINGENCY_MATRIX_KEY: contingency_matrix,
+        RAND_INDEX_KEY: arandom_index
     }
 
     return results_dict, unique_labels, labels
@@ -107,9 +152,10 @@ def plot_results(results: dict, labels_per_sample: np.ndarray, cluster_labels: n
               "#samples", rotation=0)
 
     if external_measures:
+        heatmap(axs[2, 1], results[CONTINGENCY_MATRIX_KEY], "Adjusted random index=" +
+                str(np.round(results[RAND_INDEX_KEY], 4)), "Cluster", "Target", False)
         line_chart(axs[2, 0], cluster_labels.astype(np.str), results[PURITY_KEY], "Purity per cluster", "cluster",
                    "purity")
-        heatmap(axs[2, 1], results[CONTINGENCY_MATRIX_KEY], "Contingency Matrix", "Cluster", "Target")
 
     fig.tight_layout()
 

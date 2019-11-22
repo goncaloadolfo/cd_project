@@ -1,5 +1,5 @@
 """
-Multivariate analysis for Cover type data set.
+Multivariate analysis for Cover type Data Set.
 """
 
 import matplotlib.pyplot as plt

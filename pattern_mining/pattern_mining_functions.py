@@ -27,7 +27,7 @@ def feature_selection_dc(data: np.ndarray, target: np.ndarray, column_names: pd.
 
 
 def reduce_discretize_dummify_df(dataframe: pd.DataFrame, wanted_columns: list, unwanted_cols_to_disc: list,
-                                 discretize_pd_function, bins: int) -> pd.DataFrame:
+                                 binary_cols: list, discretize_pd_function, bins: int) -> pd.DataFrame:
     dummy_dfs = []
     wanted_col_names = []
 
@@ -38,14 +38,21 @@ def reduce_discretize_dummify_df(dataframe: pd.DataFrame, wanted_columns: list, 
         discritized_col = discretize_pd_function(col_serie, bins) \
             if wanted_col not in unwanted_cols_to_disc else col_serie.astype('category')
 
-        # dummify
-        dummy_cols = pd.get_dummies(discritized_col)
-        dummy_dfs.append(dummy_cols)
+        if wanted_col not in binary_cols:
+            # dummify
+            dummy_cols = pd.get_dummies(discritized_col)
+            dummy_dfs.append(dummy_cols)
 
-        # save wanted col name for each dumified column
-        dummy_col_names = dummy_cols.columns
-        col_names_to_insert = [wanted_col + str(dummy_col_name) for dummy_col_name in dummy_col_names]
-        wanted_col_names += col_names_to_insert
+            # save wanted col name for each dumified column
+            dummy_col_names = dummy_cols.columns
+            col_names_to_insert = [wanted_col + str(dummy_col_name) for dummy_col_name in dummy_col_names]
+            wanted_col_names += col_names_to_insert
+
+        # binary column
+        else:
+            col_df = pd.DataFrame({wanted_col: col_serie})
+            dummy_dfs.append(col_df)
+            wanted_col_names.append(wanted_col)
 
     dummified_df = pd.concat(dummy_dfs, axis=1, ignore_index=True)  # concatenate all dumified columns
     dummified_df.columns = wanted_col_names  # more interpretable column names
@@ -84,6 +91,21 @@ def association_rules_mining(fp_mining_args: list, min_confidence: float, min_an
     return rules, frequent_patterns, min_supp
 
 
+def rules_per_target(dummy_df: pd.DataFrame, target: np.ndarray, min_supp: float, min_conf: float,
+                     min_ant_items: int) -> list:
+    ars_per_target = []
+    unique_target = np.unique(target)
+
+    for t in unique_target:
+        samples_rows = np.where(target == t)[0]
+        target_samples = dummy_df.iloc[samples_rows]
+        rules, _, _ = association_rules_mining([target_samples, min_supp], min_conf, min_ant_items)
+        ars_per_target.append(rules)
+
+    return ars_per_target
+
+
+#########
 # Aux functions for results
 def pretty_print_fsets(freqsets_df: pd.DataFrame, order: bool, n: int) -> None:
     ordered_fsets = freqsets_df.sort_values(['support'], ascending=order).values
@@ -129,13 +151,14 @@ def fsets_per_supp(dummy_df: pd.DataFrame, supports: list) -> None:
 
 # Pattern mining system function
 def pm_system(data: pd.DataFrame, targets: list, k_features: int, selection_measure, discretize_function, bins: int,
-              disc_needless_cols, fp_args: list, min_conf: float, min_ant_items: int) -> tuple:
+              disc_needless_cols: list, binary_cols: list, fp_args: list, min_conf: float, min_ant_items: int) -> tuple:
     # feature selection
     _, selected_features = feature_selection_dc(data.values, targets, data.columns, selection_measure, k_features)
     selected_features = [selected_feature[0] for selected_feature in selected_features]
 
     # transactional encoding
-    dummified_df = reduce_discretize_dummify_df(data, selected_features, disc_needless_cols, discretize_function, bins)
+    dummified_df = reduce_discretize_dummify_df(data, selected_features, disc_needless_cols, binary_cols,
+                                                discretize_function, bins)
 
     # association rules mining
     rules, frequent_patterns, min_sup = association_rules_mining([dummified_df] + fp_args, min_conf, min_ant_items)
