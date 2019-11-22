@@ -15,7 +15,7 @@ from vis_functions import line_chart
 NR_FOLDS = 5
 
 # load data
-data, X, y = load_pd("../../../datasets/pd_speech_features.csv", merge_observations=False)
+data, X, y = load_pd("../../../datasets/pd_speech_features.csv", merge_observations=True)
 
 # classifier and kfold obj
 xgboost = XGBClassifier()
