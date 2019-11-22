@@ -1,7 +1,7 @@
 """
 K-Means results Parkinson Decease Data set.
 
-Tested pre-processing: correlated variables removing, normalization (StandardScaler),
+Tested pre-processing: normalization (StandardScaler),
 outlier removing with DBSCAN, PCA for data reduction/transformation
 """
 
@@ -11,7 +11,6 @@ from sklearn.preprocessing import StandardScaler
 
 # own libs
 from clustering.clustering_functions import *
-from data_exploration.multi_analysis_functions import put_away_vars
 from utils import dbscan_outliers_analysis_plot, pca_cumulative_variance_plot
 
 
@@ -22,11 +21,7 @@ target = data.pop('class')
 
 #####
 # pre-process data
-vars_to_remove = put_away_vars(data.corr(), 0.95)
-rvars_names = data.columns[vars_to_remove]
-data_array = data.drop(columns=rvars_names).values
-
-normalized_data = StandardScaler().fit_transform(data_array)
+normalized_data = StandardScaler().fit_transform(data.values)
 
 dbscan_outliers_analysis_plot(normalized_data, eps_list=[15, 20, 25, 30, 35], min_samples=3)
 non_outliers_indexes = DBSCAN(eps=35, min_samples=3).fit(normalized_data).labels_ != -1

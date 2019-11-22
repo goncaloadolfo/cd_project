@@ -13,7 +13,6 @@ from sklearn.decomposition import PCA
 # own libs
 from clustering.clustering_functions import *
 from utils import nearest_nb_distance_plot
-from data_exploration.multi_analysis_functions import put_away_vars
 
 
 #####
@@ -23,10 +22,7 @@ target = data.pop('class')
 
 #####
 # pre-processing
-vars_to_remove = put_away_vars(data.corr(), 0.95)
-rvars_names = data.columns[vars_to_remove]
-data_array = data.drop(columns=rvars_names).values
-normalized_data = StandardScaler().fit_transform(data_array)
+normalized_data = StandardScaler().fit_transform(data.values)
 reduced_data = PCA(n_components=115).fit_transform(normalized_data)  # aprox 90% variance ratio
 
 #####

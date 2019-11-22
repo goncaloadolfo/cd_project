@@ -66,7 +66,7 @@ def dbscan_outliers_analysis_plot(data: np.ndarray, eps_list: list, min_samples:
 
 
 def pca_cumulative_variance_plot(data: np.ndarray) -> PCA:
-    pca_obj = PCA(n_components=data.shape[1])
+    pca_obj = PCA(n_components=min(data.shape[0], data.shape[1]))
     pca_obj.fit(data)
     explained_variance_ratio = pca_obj.explained_variance_ratio_
     variance_ratio_cumsum = np.cumsum(explained_variance_ratio)
