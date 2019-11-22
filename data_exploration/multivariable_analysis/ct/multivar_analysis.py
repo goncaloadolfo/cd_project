@@ -1,31 +1,26 @@
-'''
+"""
 Multivariate analysis for Cover type data set.
-'''
+"""
 
-# libs
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 
-# own libs
-from data_exploration.multi_analysis_functions import draw_heatmap, correlation_histogram
-from utils import undersampling_ct
+from data_exploration.multivariable_analysis.multivar_analysis_functions import draw_heatmap, correlation_histogram
+from utils import load_and_undersample_ct
 from vis_functions import bar_chart, scatter_plot
 
-
-#####
 # under sampling cover type data set
-ct_data = undersampling_ct("../../datasets/secondDataSet.csv")
+ct_data = load_and_undersample_ct("../../datasets/secondDataSet.csv")
 cover_types = np.unique(ct_data['Cover_Type'])
 
-#####
 # show data balance after under sampling
 ct_per_area = []
-area_col_names = ['Wilderness_Area0', 'Wilderness_Area1', 'Wilderness_Area2', 'Wilderness_Area3']
-area_names = ['Rawah', 'Neota', 'Comanche Peak', 'Cache la Poudre']
+area_col_names = ["Wilderness_Area0", "Wilderness_Area1", "Wilderness_Area2", "Wilderness_Area3"]
+area_names = ["Rawah", "Neota", "Comanche Peak", "Cache la Poudre"]
 
 for area_i in range(4):
     df_area = ct_data[ct_data[area_col_names[area_i]] == 1]
-    area_target = df_area['Cover_Type'].values
+    area_target = df_area["Cover_Type"].values
     target_counting = [np.sum(area_target == target) for target in cover_types]
     ct_per_area.append(target_counting)
 
@@ -36,17 +31,15 @@ bar_chart(axes[0, 1], xvalues_charts, ct_per_area[1], area_names[1], "cover type
 bar_chart(axes[1, 0], xvalues_charts, ct_per_area[2], area_names[2], "cover type", "#samples")
 bar_chart(axes[1, 1], xvalues_charts, ct_per_area[3], area_names[3], "cover type", "#samples")
 
-#####
 # correlation between measure variables
-targets = ct_data.pop('Cover_Type')
+targets = ct_data.pop("Cover_Type")
 measures_df = ct_data.iloc[:, :10]
 
 corr_fig, corr_axes = plt.subplots(1, 2)
-draw_heatmap(measures_df.corr(), measures_df.columns, measures_df.columns, True, 'Greens',
+draw_heatmap(measures_df.corr(), measures_df.columns, measures_df.columns, True, "Greens",
              "Measures Correlation", "variable", "variable", corr_axes[0])
 correlation_histogram("Correlation histogram", measures_df.corr().values, corr_axes[1])
 
-#####
 # some scatter plots between measure variables
 target_colors = ['b', 'g', 'r', 'c', 'm', 'y', 'black']
 focus_var = ct_data.columns[0]

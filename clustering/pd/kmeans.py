@@ -1,28 +1,22 @@
-'''
+"""
 K-Means results with default pre-processing.
 
 normalization with StandardScaler -> outlier removing with DBSCAN -> feature selection with PCA
-'''
+"""
 
-# libs
 import pandas as pd
-from sklearn.preprocessing import StandardScaler
 from sklearn.cluster import KMeans, DBSCAN
 from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
 
-# own libs
 from clustering.clustering_functions import *
 from vis_functions import line_chart
 
-
 # load data
-data = pd.read_csv("../../datasets/pd_speech_features.csv")
-data_array = data.values
-target = data_array[:, -1]
-data_array = data_array[:, :-1]
+data, X, y = pd.read_csv("../../datasets/pd_speech_features.csv")
 
 # pre-process data - outlier removing, normalization and feature selection
-normalized_data = StandardScaler().fit_transform(data_array)
+normalized_data = StandardScaler().fit_transform(X)
 
 eps_list = [15, 20, 25, 30, 35]
 outliers_found = []
@@ -35,10 +29,10 @@ plt.figure()
 line_chart(plt.gca(), eps_list, outliers_found, "Outliers found per eps used", "eps", "#outliers")
 non_outliers_indexes = DBSCAN(eps=30, min_samples=3).fit(normalized_data).labels_ != -1
 data_without_out = normalized_data[non_outliers_indexes, :]
-new_target = target[non_outliers_indexes]
+new_target = y[non_outliers_indexes]
 
 pca_obj = PCA(n_components=data_without_out.shape[1])
-pca_obj.fit(data_without_out, target)
+pca_obj.fit(data_without_out, y)
 explained_variance_ratio = pca_obj.explained_variance_ratio_
 variance_ratio_cumsum = np.cumsum(explained_variance_ratio)
 

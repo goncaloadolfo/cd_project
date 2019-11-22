@@ -1,15 +1,12 @@
-'''
+"""
 Association rules for Cover Type data set.
-'''
+"""
 
-# own libs
-from utils import undersampling_ct, print_return_variable
 from pattern_mining.pattern_mining_functions import *
-from mlxtend.frequent_patterns import fpgrowth
-
+from utils import load_and_undersample_ct, print_return_variable
 
 # load data set and under sample it
-ct_data = undersampling_ct("../datasets/secondDataSet.csv")
+ct_data = load_and_undersample_ct("../datasets/secondDataSet.csv")
 variables_names = ct_data.columns
 
 # pattern mining parameters

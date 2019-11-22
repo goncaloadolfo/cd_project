@@ -1,16 +1,14 @@
-'''
+"""
 Clustering functions.
-'''
+"""
 
-# libs
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 from sklearn import metrics
 from sklearn.feature_selection import SelectKBest, f_classif
 
-# own libs
-from vis_functions import line_chart, bar_chart, heatmap, scatter_plot
 from utils import euclidean_distance
+from vis_functions import line_chart, bar_chart, heatmap, scatter_plot
 
 # globals
 COHESION_KEY = "cohesion"
@@ -20,7 +18,6 @@ PURITY_KEY = "purity"
 CONTINGENCY_MATRIX_KEY = "contingency_matrix"
 
 
-######
 # auxiliary functions for clustering evaluation
 def calculate_centroids(data: np.ndarray, labels: np.ndarray, unique_labels: np.ndarray) -> list:
     return [np.mean(data[labels == label], axis=0) for label in unique_labels]
@@ -36,7 +33,6 @@ def neareast_centroid(centroid_i: int, centroids: np.ndarray) -> int:
             return centroids[dist_ind]
 
 
-######
 # clustering evaluation
 def evaluate_clustering_alg(alg_obj, preprocessed_data: np.ndarray, targets: np.ndarray) -> tuple:
     # apply clustering alg and get label of each sample
@@ -59,13 +55,13 @@ def evaluate_clustering_alg(alg_obj, preprocessed_data: np.ndarray, targets: np.
         centroid = centroids[label_i]
 
         # cohesion
-        within_distances = [euclidean_distance(cluster_point, centroid)**2
+        within_distances = [euclidean_distance(cluster_point, centroid) ** 2
                             for cluster_point in preprocessed_data[labels == label]]
         cohesions.append(np.sum(within_distances))
 
         # separation
         separations.append(np.linalg.norm(centroid) *
-                           (euclidean_distance(centroid, neareast_centroid(label_i, centroids))**2))
+                           (euclidean_distance(centroid, neareast_centroid(label_i, centroids)) ** 2))
 
         # silhouette
         cluster_silhouettes = silhouettes_per_sample[labels == label]
@@ -91,7 +87,6 @@ def evaluate_clustering_alg(alg_obj, preprocessed_data: np.ndarray, targets: np.
     return results_dict, unique_labels, labels
 
 
-#######
 # results plotting
 def plot_results(results: dict, labels_per_sample: np.ndarray, cluster_labels: np.ndarray, alg_name: str):
     external_measures = len(results[PURITY_KEY]) != 0

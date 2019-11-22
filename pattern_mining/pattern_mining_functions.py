@@ -1,19 +1,16 @@
-'''
+"""
 Pattern Mining functions.
-'''
+"""
 
-# built-in
 import operator
 
-# libs
+import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-from sklearn.feature_selection import SelectKBest
 from mlxtend.frequent_patterns import association_rules, fpgrowth
+from sklearn.feature_selection import SelectKBest
 
 
-#######
 # Transactional data encoding functions
 def feature_selection_dc(data: np.ndarray, target: np.ndarray, column_names: pd.Index, disc_cap_function,
                          n: int) -> tuple:
@@ -55,7 +52,6 @@ def reduce_discretize_dummify_df(dataframe: pd.DataFrame, wanted_columns: list, 
     return dummified_df
 
 
-######
 # Frequent patterns / Association rules mining functions
 def fp_decreasing_supp(dummified_df: pd.DataFrame, min_frequent_patterns: int, supp_decreasing_rate: float,
                        min_possible_supp: float) -> tuple:
@@ -88,7 +84,6 @@ def association_rules_mining(fp_mining_args: list, min_confidence: float, min_an
     return rules, frequent_patterns, min_supp
 
 
-#########
 # Aux functions for results
 def pretty_print_fsets(freqsets_df: pd.DataFrame, order: bool, n: int) -> None:
     ordered_fsets = freqsets_df.sort_values(['support'], ascending=order).values
@@ -132,7 +127,6 @@ def fsets_per_supp(dummy_df: pd.DataFrame, supports: list) -> None:
     plt.show()
 
 
-#######
 # Pattern mining system function
 def pm_system(data: pd.DataFrame, targets: list, k_features: int, selection_measure, discretize_function, bins: int,
               disc_needless_cols, fp_args: list, min_conf: float, min_ant_items: int) -> tuple:

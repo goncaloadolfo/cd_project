@@ -1,14 +1,12 @@
-'''
+"""
 Functions for data set multi analysis.
-'''
+"""
 
-# built-in
 import pickle
 
-# libs
-import seaborn as sns
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
+import seaborn as sns
 
 # globals
 CORRELATION_BINS = 10
@@ -20,7 +18,6 @@ def get_next_vars_to_plot(plotted_vars, sorted_corr, original_corr_matrix, data)
     corr_value = -5
 
     while not done:
-
         if len(sorted_corr) == 0:
             break
 
@@ -46,13 +43,10 @@ def scatter_plots(data, target, correlation_matrix, criteria):
     # sort correlation values
     if criteria == -1:
         sorted_array = np.sort(flatted_array)
-
     elif criteria == 0:
         sorted_array = np.sort(np.abs(flatted_array))
-
     elif criteria == 1:
         sorted_array = np.sort(flatted_array)[::-1]
-
     else:
         raise ValueError("Sort criteria not accepted. Possible values: {-1, 0, 1}")
 
@@ -72,7 +66,6 @@ def scatter_plots(data, target, correlation_matrix, criteria):
                 axes[row, col].set_ylabel(var2)
                 axes[row, col].plot(data[var1][target == 0], data[var2][target == 0], '^')
                 axes[row, col].plot(data[var1][target == 1], data[var2][target == 1], 's')
-
             else:
                 break
 
@@ -104,31 +97,15 @@ def correlation_histogram(title, corr_matrix, axes):
     axes.set_ylabel("percentage(%)")
     axes.set_xticks(edge_bins)
     n, bins, patches = axes.hist(corr_values, weights=(np.ones(nr_corrs) / nr_corrs) * 100,
-                                bins=CORRELATION_BINS, range=(-1.0, 1.0))
+                                 bins=CORRELATION_BINS, range=(-1.0, 1.0))
     axes.grid()
 
     print("######")
     print(title)
     for i in range(len(n)):
-        print(str(format(bins[i], '.2f')) + "-" + str(format(bins[i + 1], '.2f')) + ": " + str(format(n[i], '.2f')))
+        print(format(bins[i], '.2f'), "-", format(bins[i + 1], '.2f'), ": ", format(n[i], '.2f'))
 
 
-def put_away_vars(corr_matrix, thr):
-    return_vars = []
-    # apply predicate
-    rows, cols = np.where(np.logical_or(corr_matrix > thr, corr_matrix < -thr))
-
-    # for each result
-    for i in range(len(rows)):
-        # get variable indexes
-        var1 = rows[i]
-        var2 = cols[i]
-
-        # if none of them is putted away already
-        if not(var1 in return_vars or var2 in return_vars) and var1 != var2:
-            return_vars.append(var1)
-
-    return return_vars
 
 
 def corr_thr(corr_matrix, thresholds):

@@ -1,23 +1,16 @@
-'''
+"""
 Obtaining association rules for PD dataset.
-'''
+"""
 
-# libs
 from sklearn.feature_selection import f_classif
 
-# own libs
 from pattern_mining.pattern_mining_functions import *
-from utils import print_return_variable
-from data_exploration.multi_analysis_functions import put_away_vars
+from utils import load_pd, print_return_variable, remove_correlated_vars
 
-
-data = pd.read_csv("../datasets/pd_speech_features.csv")
-y = data.pop('class').values
+data, X, y = load_pd("../datasets/pd_speech_features.csv")
 
 # remove high correlated variables
-vars_to_remove = put_away_vars(data.corr(), 0.8)
-col_names_to_remove = data.columns[vars_to_remove]
-new_df = data.drop(columns=col_names_to_remove)
+new_df = remove_correlated_vars(data, lambda x: x > .8 or x < -.8)
 
 # pattern mining parameters
 print("\n### Pattern mining parameters")

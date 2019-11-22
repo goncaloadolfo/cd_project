@@ -1,31 +1,23 @@
-'''
+"""
 DBScan algorithm results with default pre-processing.
 
 normalization with StandardScaler -> feature selection with PCA
-'''
+"""
 
-# libs
 import pandas as pd
-from sklearn.preprocessing import StandardScaler
 from scipy.spatial import distance_matrix
 from sklearn.cluster import DBSCAN
-from sklearn.metrics.cluster import silhouette_score
 from sklearn.decomposition import PCA
+from sklearn.metrics.cluster import silhouette_score
+from sklearn.preprocessing import StandardScaler
 
-# own libs
 from clustering.clustering_functions import *
 
-
 # load data
-data = pd.read_csv("../../datasets/pd_speech_features.csv")
-
-# data without class
-data_array = data.values
-target = data_array[:, -1]
-data_array = data_array[:, :-1]
+data, X, y = pd.read_csv("../../datasets/pd_speech_features.csv")
 
 # pre-processing: normalization
-normalized_data = StandardScaler().fit_transform(data_array)
+normalized_data = StandardScaler().fit_transform(X)
 reduced_data = PCA(n_components=115).fit_transform(normalized_data)  # aprox 90% variance ratio
 
 # nearest neighbour distance
@@ -49,14 +41,14 @@ for eps in eps_list:
         dbscan.fit(reduced_data)
         labels = dbscan.labels_
 
-        print("eps: " + str(eps) + ", min samples: " + str(min_samples))
-        print("clusters: " + str(np.unique(labels)))
-        print("silhouette: " + str(silhouette_score(reduced_data, labels)) + "\n")
+        print("eps: ", eps, ", min samples: ", min_samples)
+        print("clusters: ", np.unique(labels))
+        print("silhouette: ", silhouette_score(reduced_data, labels), "\n")
 
 # fixed dbscan evaluation
 fixed_dbscan = DBSCAN(eps=30, min_samples=2)
-results, unique_labels, labels = evaluate_clustering_alg(fixed_dbscan, reduced_data, target)
+results, unique_labels, labels = evaluate_clustering_alg(fixed_dbscan, reduced_data, y)
 plot_results(results, labels, unique_labels, "DBSCAN")
-clusters_vis(reduced_data, target, labels, ['c', 'm', 'y', 'k', 'b'])
+clusters_vis(reduced_data, y, labels, ['c', 'm', 'y', 'k', 'b'])
 
 plt.show()
