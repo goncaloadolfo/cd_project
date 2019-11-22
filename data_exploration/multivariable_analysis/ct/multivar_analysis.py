@@ -10,7 +10,7 @@ from utils import load_and_undersample_ct
 from vis_functions import bar_chart, scatter_plot
 
 # under sampling cover type data set
-ct_data = load_and_undersample_ct("../../datasets/secondDataSet.csv")
+ct_data = load_and_undersample_ct("../../../datasets/secondDataSet.csv")
 cover_types = np.unique(ct_data['Cover_Type'])
 
 # show data balance after under sampling

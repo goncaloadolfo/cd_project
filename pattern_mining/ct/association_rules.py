@@ -2,19 +2,16 @@
 Association rules for Cover Type data set.
 """
 
-# libs
 from sklearn.feature_selection import f_classif
 
 from pattern_mining.pattern_mining_functions import *
+from utils import load_and_undersample_ct, print_return_variable
 
-
-#####
 # load data
-ct_data = undersampling_ct("../datasets/secondDataSet.csv")
+ct_data = load_and_undersample_ct("../../datasets/secondDataSet.csv")
 y = ct_data.pop('Cover_Type').values
 columns = ct_data.columns.values
 
-#####
 # pattern mining parameters
 print("\n### Pattern mining parameters")
 
@@ -29,7 +26,6 @@ fp_mining_args = [min_supp]
 min_conf = print_return_variable("Min confidence: ", 0.6)
 min_ant_items = print_return_variable("Min of items in antecedents itemset: ", 1)
 
-#####
 # AR results
 selected_features, dummified_df, frequent_patterns, _, rules = pm_system(ct_data, y, k_features, selection_measure,
                                                                          discretize_function, bins,

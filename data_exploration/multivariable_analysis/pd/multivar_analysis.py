@@ -2,10 +2,10 @@
 Multivariate analysis for PD data set.
 """
 
-import pandas as pd
 import matplotlib.pyplot as plt
 
 from data_exploration.multivariable_analysis.multivar_analysis_functions import multi_analysis
+from utils import load_pd
 
 # globals
 PARKINSON_ATTR_GROUPS = {
@@ -20,9 +20,7 @@ PARKINSON_ATTR_GROUPS = {
 }
 
 # load parkison data
-data = pd.read_csv("../../datasets/pd_speech_features.csv", sep=",", index_col=None, decimal='.')
-y = data.pop("class")
-X = data.values
+data, X, y = load_pd("../../datasets/pd_speech_features.csv")
 
 multi_analysis(data, y, PARKINSON_ATTR_GROUPS)
 

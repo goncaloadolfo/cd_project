@@ -1,43 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bda25890-90ce-4f46-ab29-eb70d1bf4daa" name="Default Changelist" comment="" />
+    <list default="true" id="379ead71-39a8-47d5-994f-03b67d6f277b" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/cd_project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cd_project.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/KNN-Bayes/CDProjecto.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/KNN-Bayes/CDProjectoSecondSet.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/KNN-Bayes/DataTreatment.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/KNN-Bayes/functions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classification/xgboost/ct_xgboost.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classification/xgboost/ct_xgboost_baseline.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classification/xgboost/pd_xgboost.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classification/xgboost/pd_xgboost_baseline.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classification/xgboost/xgboost_functions.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/classification/xgboost_2/ct/baseline.py" beforeDir="false" afterPath="$PROJECT_DIR$/classification/xgboost/ct/baseline.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classification/xgboost_2/ct/default_pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/classification/xgboost/ct/default_pipeline.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classification/xgboost_2/pd/baseline.py" beforeDir="false" afterPath="$PROJECT_DIR$/classification/xgboost/pd/baseline.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clustering/ct/kmeans.py" beforeDir="false" afterPath="$PROJECT_DIR$/clustering/ct/kmeans.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clustering/pd/dbscan.py" beforeDir="false" afterPath="$PROJECT_DIR$/clustering/pd/dbscan.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/clustering/pd/kmeans.py" beforeDir="false" afterPath="$PROJECT_DIR$/clustering/pd/kmeans.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_exploration/multivariable_analysis/ct/multivar_analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_exploration/multivariable_analysis/ct/multivar_analysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_exploration/multivariable_analysis/pd/multivar_analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_exploration/multivariable_analysis/pd/multivar_analysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data_exploration/singular_variable_analysis/ct/singular_variable_analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_exploration/singular_variable_analysis/ct/singular_variable_analysis.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pattern_mining/ct_association_rules.py" beforeDir="false" afterPath="$PROJECT_DIR$/pattern_mining/ct/association_rules.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pattern_mining/pd_association_rules.py" beforeDir="false" afterPath="$PROJECT_DIR$/pattern_mining/pd/association_rules.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FavoritesManager">
-    <favorites_list name="cd_project" />
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/classification/xgboost_2/ct/baseline.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="31">
-              <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-              <folding>
-                <element signature="e#114#145#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/classification/xgboost_2/ct/default_pipeline.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="115">
-              <caret line="99" lean-forward="true" selection-start-line="99" selection-end-line="99" />
-              <folding>
-                <element signature="e#90#108#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -49,104 +43,30 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-        <option value="$PROJECT_DIR$/vis_functions.py" />
-        <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/clustering/pd/dbscan.py" />
-        <option value="$PROJECT_DIR$/utils.py" />
-        <option value="$PROJECT_DIR$/pattern_mining/pd_association_rules.py" />
-        <option value="$PROJECT_DIR$/pattern_mining/pattern_mining_functions.py" />
-        <option value="$PROJECT_DIR$/pattern_mining/ct_association_rules.py" />
-        <option value="$PROJECT_DIR$/clustering/pd/kmeans.py" />
-        <option value="$PROJECT_DIR$/classification/xgboost/pd_xgboost_baseline.py" />
-        <option value="$PROJECT_DIR$/classification/xgboost/pd_xgboost.py" />
-        <option value="$PROJECT_DIR$/classification/xgboost/xgboost_functions.py" />
-        <option value="$PROJECT_DIR$/classification/xgboost/ct_xgboost_baseline.py" />
-        <option value="$PROJECT_DIR$/classification/xgboost/ct_xgboost.py" />
-        <option value="$PROJECT_DIR$/classification/xgboost_2/pd/tuning.py" />
-        <option value="$PROJECT_DIR$/classification/xgboost_2/pd/pipelines.py" />
-        <option value="$PROJECT_DIR$/classification/xgboost_2/xgboost_functions.py" />
-        <option value="$PROJECT_DIR$/classification/xgboost_2/pd/baseline.py" />
-        <option value="$PROJECT_DIR$/classification/xgboost_2/pd/default_pipeline.py" />
-        <option value="$PROJECT_DIR$/classification/xgboost_2/ct/baseline.py" />
-        <option value="$PROJECT_DIR$/classification/xgboost_2/ct/default_pipeline.py" />
-      </list>
+  <component name="IgnoredFileRootStore">
+    <option name="generatedRoots">
+      <set>
+        <option value="D:\Martim\Documents\IST\1º Ano\1º Semestre\CDadosi - Ciência de Dados\cd_project\.idea" />
+      </set>
     </option>
   </component>
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
-      <list>
-        <option value="$PROJECT_DIR$/.idea/cd_project.iml" />
-        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
-        <option value="$PROJECT_DIR$/.idea/misc.xml" />
-        <option value="$PROJECT_DIR$/.idea/modules.xml" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="77" />
-    <option name="y" value="47" />
-    <option name="width" value="1279" />
-    <option name="height" value="701" />
-  </component>
-  <component name="ProjectView">
-    <navigator proportions="" version="1">
-      <foldersAlwaysOnTop value="true" />
-    </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="cd_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cd_project" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cd_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cd_project" type="462c0819:PsiDirectoryNode" />
-              <item name="classification" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cd_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cd_project" type="462c0819:PsiDirectoryNode" />
-              <item name="classification" type="462c0819:PsiDirectoryNode" />
-              <item name="xgboost_2" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cd_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cd_project" type="462c0819:PsiDirectoryNode" />
-              <item name="classification" type="462c0819:PsiDirectoryNode" />
-              <item name="xgboost_2" type="462c0819:PsiDirectoryNode" />
-              <item name="ct" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cd_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cd_project" type="462c0819:PsiDirectoryNode" />
-              <item name="classification" type="462c0819:PsiDirectoryNode" />
-              <item name="xgboost_2" type="462c0819:PsiDirectoryNode" />
-              <item name="pd" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cd_project" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cd_project" type="462c0819:PsiDirectoryNode" />
-              <item name="datasets" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
-  </component>
+  <component name="ProjectId" id="1TmkrkUsDnGVVHtpv6XuWFa7b7j" />
   <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Projeto/Project" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Martim\Documents\IST\1º Ano\1º Semestre\CDadosi - Ciência de Dados\cd_project\classification\random_forests" />
+      <recent name="D:\Martim\Documents\IST\1º Ano\1º Semestre\CDadosi - Ciência de Dados\cd_project\classification\cd" />
+      <recent name="D:\Martim\Documents\IST\1º Ano\1º Semestre\CDadosi - Ciência de Dados\cd_project\data_exploration\singular_variable_analysis\cd" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\mestrado\1sem\cdados\cd_project\classification\xgboost_2\ct" />
+      <recent name="D:\Martim\Documents\IST\1º Ano\1º Semestre\CDadosi - Ciência de Dados\cd_project\pattern_mining\pd" />
+      <recent name="D:\Martim\Documents\IST\1º Ano\1º Semestre\CDadosi - Ciência de Dados\cd_project\pattern_mining\ct" />
+      <recent name="D:\Martim\Documents\IST\1º Ano\1º Semestre\CDadosi - Ciência de Dados\cd_project\classification\decision_trees" />
+      <recent name="D:\Martim\Documents\IST\1º Ano\1º Semestre\CDadosi - Ciência de Dados\cd_project\classification\pd" />
+      <recent name="D:\Martim\Documents\IST\1º Ano\1º Semestre\CDadosi - Ciência de Dados\cd_project\data_exploration\multivariable_analysis" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -161,8 +81,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.default_pipeline">
-    <configuration name="baseline (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.naive_bayes (1)">
+    <configuration name="association_rules (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="cd_project" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -170,11 +90,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/classification/xgboost_2/ct" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/pattern_mining/pd" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/classification/xgboost_2/ct/baseline.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pattern_mining/pd/association_rules.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -183,7 +103,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="baseline" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="knn (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="cd_project" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -191,11 +111,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/classification/xgboost_2/pd" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/classification/knn/ct" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/classification/xgboost_2/pd/baseline.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/classification/knn/ct/knn.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -204,7 +124,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ct_xgboost" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="knn" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="cd_project" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -212,11 +132,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/classification/xgboost" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/classification/knn/pd" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/classification/xgboost/ct_xgboost.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/classification/knn/pd/knn.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -225,7 +145,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="ct_xgboost_baseline" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="naive_bayes (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="cd_project" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -233,11 +153,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/classification/xgboost" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/classification/naive_bayes/ct" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/classification/xgboost/ct_xgboost_baseline.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/classification/naive_bayes/ct/naive_bayes.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -246,18 +166,21 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="default_pipeline" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="naive_bayes" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="cd_project" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/classification/xgboost_2/ct" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/classification/naive_bayes/pd" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/classification/xgboost_2/ct/default_pipeline.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/classification/naive_bayes/pd/naive_bayes.py" />
       <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
@@ -266,11 +189,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.default_pipeline" />
-        <item itemvalue="Python.baseline (1)" />
-        <item itemvalue="Python.baseline" />
-        <item itemvalue="Python.default_pipeline" />
-        <item itemvalue="Python.ct_xgboost" />
+        <item itemvalue="Python.naive_bayes (1)" />
+        <item itemvalue="Python.knn (1)" />
+        <item itemvalue="Python.knn" />
+        <item itemvalue="Python.naive_bayes" />
+        <item itemvalue="Python.association_rules (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -279,247 +202,25 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="bda25890-90ce-4f46-ab29-eb70d1bf4daa" name="Default Changelist" comment="" />
-      <created>1574251535581</created>
+      <changelist id="379ead71-39a8-47d5-994f-03b67d6f277b" name="Default Changelist" comment="" />
+      <created>1574072858427</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1574251535581</updated>
+      <updated>1574072858427</updated>
     </task>
     <servers />
   </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49918166" visible="true" weight="0.17113096" />
-      <window_info id="Favorites" order="1" sideWeight="0.5008183" side_tool="true" weight="0.098958336" />
-      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.7692308" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Python Console" order="10" visible="true" weight="0.88707036" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
-    <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49918166" visible="true" weight="0.17410715" />
-      <window_info id="Favorites" order="1" sideWeight="0.5008183" side_tool="true" weight="0.098958336" />
-      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.69394433" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" weight="0.9443535" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout-to-restore>
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/vis_functions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="881">
-          <caret line="82" lean-forward="true" selection-start-line="82" selection-end-line="82" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="10" lean-forward="true" selection-start-line="2" selection-start-column="10" selection-end-line="2" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data_exploration/pd/multivar_analysis.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="83">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/utils.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="69" column="21" lean-forward="true" selection-start-line="69" selection-start-column="21" selection-end-line="69" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pattern_mining/pattern_mining_functions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3320">
-          <caret line="166" selection-start-line="166" selection-end-line="166" />
-          <folding>
-            <element signature="e#46#61#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pattern_mining/pd_association_rules.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-          <folding>
-            <element signature="e#66#113#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pattern_mining/ct_association_rules.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-          <folding>
-            <element signature="e#59#106#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clustering/pd/dbscan.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="e#190#209#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clustering/pd/kmeans.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="27" column="59" lean-forward="true" selection-start-line="27" selection-start-column="59" selection-end-line="27" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/clustering/ct/kmeans.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-307">
-          <caret line="6" lean-forward="true" selection-start-line="6" selection-end-line="6" />
-          <folding>
-            <element signature="e#184#232#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classification/xgboost/pd_xgboost_baseline.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="3" selection-start-column="3" selection-end-column="3" />
-          <folding>
-            <element signature="e#90#142#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classification/xgboost/pd_xgboost.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <element signature="e#189#241#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classification/xgboost_2/pd/tuning.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="2" column="57" lean-forward="true" selection-start-line="2" selection-start-column="57" selection-end-line="2" selection-end-column="57" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classification/xgboost_2/pd/pipelines.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="4" lean-forward="true" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classification/xgboost_2/xgboost_functions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classification/xgboost/ct_xgboost.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-80">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-          <folding>
-            <element signature="e#151#203#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classification/xgboost/ct_xgboost_baseline.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="283">
-          <caret line="29" column="5" lean-forward="true" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-          <folding>
-            <element signature="e#90#142#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classification/xgboost/xgboost_functions.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="606">
-          <caret line="149" lean-forward="true" selection-start-line="149" selection-end-line="149" />
-          <folding>
-            <element signature="e#61#79#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classification/xgboost_2/pd/baseline.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="14" lean-forward="true" selection-start-line="14" selection-end-line="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classification/xgboost_2/ct/baseline.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-          <folding>
-            <element signature="e#114#145#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/classification/xgboost_2/ct/default_pipeline.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="99" lean-forward="true" selection-start-line="99" selection-end-line="99" />
-          <folding>
-            <element signature="e#90#108#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

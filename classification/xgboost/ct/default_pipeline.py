@@ -15,7 +15,7 @@ from xgboost import XGBClassifier
 
 # own libs
 from utils import undersampling_ct
-from classification.xgboost_2.ct.baseline import print_results
+from classification.xgboost.ct.baseline import print_results
 from vis_functions import heatmap
 
 # globals

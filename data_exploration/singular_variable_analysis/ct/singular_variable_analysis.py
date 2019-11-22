@@ -1,7 +1,6 @@
 from numpy.ma import arange
 
 from data_exploration.singular_variable_analysis.singular_variable_analysis_functions import *
-from utils import load_pd
 from vis_functions import variables_boxplot
 
 data: pd.DataFrame = pd.read_csv("../../../datasets/secondDataSet.csv")

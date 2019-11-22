@@ -5,19 +5,11 @@ Association rules for Parkinson Decease Data Set.
 from sklearn.feature_selection import f_classif
 
 from pattern_mining.pattern_mining_functions import *
-from utils import load_pd, print_return_variable, remove_correlated_vars
+from utils import print_return_variable, load_pd
 
-
-#####
 # load data
-data = pd.read_csv("../datasets/pd_speech_features.csv")
-y = data.pop('class').values
+data, X, y = load_pd("../../datasets/pd_speech_features.csv", remove_corr=True, corr_threshold=.8)
 
-#####
-# remove high correlated variables
-new_df = remove_correlated_vars(data, lambda x: x > .8 or x < -.8)
-
-#####
 # pattern mining parameters
 print("\n### Pattern mining parameters")
 k_features = print_return_variable("Number of features to select: ", 25)
@@ -31,14 +23,12 @@ fp_mining_args = [min_supp]
 min_conf = print_return_variable("Min confidence: ", 0.9)
 min_ant_items = print_return_variable("Min of items in antecedents itemset: ", 2)
 
-#####
 # extract association rules
-selected_features, dummified_df, frequent_patterns, _, rules = pm_system(new_df, y, k_features, selection_measure,
+selected_features, dummified_df, frequent_patterns, _, rules = pm_system(data, y.values, k_features, selection_measure,
                                                                          discretize_function, bins,
                                                                          disc_needless_cols, binary_cols,
                                                                          fp_mining_args, min_conf, min_ant_items)
 
-#####
 # results visualization
 print("\n### Selected features")
 print("Selected features: ", selected_features)
@@ -49,9 +39,8 @@ pretty_print_rules(rules, ['confidence'], False, 30)
 
 fsets_per_supp(dummified_df, np.arange(0.4, 1.001, 0.1))
 
-#####
 # exclusive rules between classes
-rules_per_class = rules_per_target(dummified_df, y, 0.6, 0.9, 2)
+rules_per_class = rules_per_target(dummified_df, y.values, 0.6, 0.9, 2)
 
 print("#####")
 on_columns = ['antecedents', 'consequents']
@@ -73,6 +62,6 @@ aux = [0, 1] + list(range(9, 16))
 pd_exclusive_rules = pd_exclusive_rules.iloc[:, aux]
 
 print("Exclusive rules for parkinson patients (some)")
-pretty_print_rules(npd_exclusive_rules, ['confidence_x'], False, 10)
+pretty_print_rules(npd_exclusive_rules, ['confidence_x'], False, 5)
 print("Exclusive rules for non parkinson patients (some)")
-pretty_print_rules(pd_exclusive_rules, ['confidence_y'], False, 10)
+pretty_print_rules(pd_exclusive_rules, ['confidence_y'], False, 5)
