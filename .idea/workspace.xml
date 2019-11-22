@@ -2,30 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="379ead71-39a8-47d5-994f-03b67d6f277b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/cd_project.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/cd_project.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KNN-Bayes/CDProjecto.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KNN-Bayes/CDProjectoSecondSet.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KNN-Bayes/DataTreatment.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/KNN-Bayes/functions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classification/xgboost/ct_xgboost.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classification/xgboost/ct_xgboost_baseline.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classification/xgboost/pd_xgboost.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classification/xgboost/pd_xgboost_baseline.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classification/xgboost/xgboost_functions.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/classification/xgboost_2/ct/baseline.py" beforeDir="false" afterPath="$PROJECT_DIR$/classification/xgboost/ct/baseline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classification/xgboost_2/ct/default_pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/classification/xgboost/ct/default_pipeline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/classification/xgboost_2/pd/baseline.py" beforeDir="false" afterPath="$PROJECT_DIR$/classification/xgboost/pd/baseline.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clustering/ct/kmeans.py" beforeDir="false" afterPath="$PROJECT_DIR$/clustering/ct/kmeans.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clustering/pd/dbscan.py" beforeDir="false" afterPath="$PROJECT_DIR$/clustering/pd/dbscan.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/clustering/pd/kmeans.py" beforeDir="false" afterPath="$PROJECT_DIR$/clustering/pd/kmeans.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_exploration/multivariable_analysis/ct/multivar_analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_exploration/multivariable_analysis/ct/multivar_analysis.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_exploration/multivariable_analysis/pd/multivar_analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_exploration/multivariable_analysis/pd/multivar_analysis.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/data_exploration/singular_variable_analysis/ct/singular_variable_analysis.py" beforeDir="false" afterPath="$PROJECT_DIR$/data_exploration/singular_variable_analysis/ct/singular_variable_analysis.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pattern_mining/ct_association_rules.py" beforeDir="false" afterPath="$PROJECT_DIR$/pattern_mining/ct/association_rules.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pattern_mining/pd_association_rules.py" beforeDir="false" afterPath="$PROJECT_DIR$/pattern_mining/pd/association_rules.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/classification/xgboost/ct/default_pipeline.py" beforeDir="false" afterPath="$PROJECT_DIR$/classification/xgboost/ct/default_pipeline.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
