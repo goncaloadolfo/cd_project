@@ -3,23 +3,19 @@ Context: Parkinson Decease Data Set
 XGBoost results without pre-processing and parameter tuning.
 """
 
-# libs
 import matplotlib.pyplot as plt
-import pandas as pd
-from sklearn.model_selection import StratifiedKFold
 from sklearn.metrics import accuracy_score, precision_score, recall_score
+from sklearn.model_selection import StratifiedKFold
 from xgboost import XGBClassifier
 
-# own libs
+from utils import load_pd
 from vis_functions import line_chart
 
 # globals
 NR_FOLDS = 5
 
-
 # load data
-data = pd.read_csv("../../../datasets/pd_speech_features.csv").values
-target = data[:, -1]
+data, X, y = load_pd("../../../datasets/pd_speech_features.csv", merge_observations=False)
 
 # classifier and kfold obj
 xgboost = XGBClassifier()
@@ -30,12 +26,12 @@ rec_per_fold = []
 
 # cross validation
 fold_index = 0
-for fold in strat_obj.split(data, target):
+for fold in strat_obj.split(X, y):
     train_indexes = fold[0]
     test_indexes = fold[1]
 
-    train_x, train_y = data[train_indexes], target[train_indexes]
-    test_x, test_y = data[test_indexes], target[test_indexes]
+    train_x, train_y = X[train_indexes], y[train_indexes]
+    test_x, test_y = X[test_indexes], y[test_indexes]
 
     xgboost.fit(train_x, train_y)
     print("evaluating fold {}".format(fold_index))

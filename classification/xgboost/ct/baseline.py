@@ -5,12 +5,12 @@ XGBoost results without pre-processing and parameter tuning.
 
 # libs
 import matplotlib.pyplot as plt
-from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score, confusion_matrix
+from sklearn.model_selection import train_test_split
 from xgboost import XGBClassifier
 
 # own libs
-from utils import undersampling_ct
+from utils import load_and_undersample_ct
 from vis_functions import heatmap
 
 
@@ -20,7 +20,7 @@ def print_results(prefix: str, acc: float, prec: float, rec: float) -> None:
 
 
 # load data
-data = undersampling_ct("../../../datasets/secondDataSet.csv")
+data = load_and_undersample_ct("../../../datasets/secondDataSet.csv")
 target = data.pop("Cover_Type")
 data = data.values
 

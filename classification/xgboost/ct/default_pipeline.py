@@ -3,18 +3,16 @@ Context: Cover Type Data Set
 XGBoost results with apriori pre-processing.
 """
 
-# libs
-import numpy as np
-import matplotlib.pyplot as plt
 import matplotlib.patches as mpatches
+import matplotlib.pyplot as plt
+import numpy as np
 from imblearn.over_sampling import SMOTE
 from sklearn.decomposition import PCA
-from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score, precision_score, recall_score, confusion_matrix
+from sklearn.model_selection import train_test_split
 from xgboost import XGBClassifier
 
-# own libs
-from utils import undersampling_ct
+from utils import load_and_undersample_ct
 from vis_functions import heatmap
 
 # globals
@@ -30,7 +28,7 @@ PLOT_RECALL_ROW = 2
 
 #####
 # load data
-data = undersampling_ct("../../../datasets/secondDataSet.csv")
+data = load_and_undersample_ct("../../../datasets/secondDataSet.csv")
 target = data.pop("Cover_Type")
 data = data.values
 
