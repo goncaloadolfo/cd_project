@@ -15,7 +15,6 @@ from xgboost import XGBClassifier
 
 # own libs
 from utils import undersampling_ct
-from classification.xgboost_2.ct.baseline import print_results
 from vis_functions import heatmap
 
 # globals
@@ -74,10 +73,13 @@ for learning_rate_i in range(len(LEARNING_RATE)):
             recall = recall_score(y_val, y_predicted, average='macro')
 
             # insert bar
-            bar_x = n_estimators + (bar_width * max_depth_i)
-            axes[PLOT_ACCURACY_ROW, learning_rate_i].bar(bar_x, accuracy, color=MAX_DEPTH_COLORS[max_depth_i])
-            axes[PLOT_PRECISION_ROW, learning_rate_i].bar(bar_x, precision, color=MAX_DEPTH_COLORS[max_depth_i])
-            axes[PLOT_RECALL_ROW, learning_rate_i].bar(bar_x, recall, color=MAX_DEPTH_COLORS[max_depth_i])
+            bar_x = n_estimators_i + (bar_width * max_depth_i)
+            axes[PLOT_ACCURACY_ROW, learning_rate_i].bar(bar_x, accuracy, width=bar_width,
+                                                         color=MAX_DEPTH_COLORS[max_depth_i])
+            axes[PLOT_PRECISION_ROW, learning_rate_i].bar(bar_x, precision, width=bar_width,
+                                                          color=MAX_DEPTH_COLORS[max_depth_i])
+            axes[PLOT_RECALL_ROW, learning_rate_i].bar(bar_x, recall, width=bar_width,
+                                                       color=MAX_DEPTH_COLORS[max_depth_i])
 
 # insert title, labels, legend to the plots
 xticks_pos = np.arange(len(NR_ESTIMATORS), dtype=np.float) + (bar_width * len(MAX_DEPTH) / 2)
@@ -110,7 +112,8 @@ prec_test = precision_score(y_test, y_predicted, average='macro')
 rec_test = recall_score(y_test, y_predicted, average='macro')
 
 # print results
-print_results("Evaluation on test set", acc_test, prec_test, rec_test)
+print("Evaluation on test set")
+print("Accuracy={}, Precision={}, Recall={}".format(acc_test, prec_test, rec_test))
 
 # confusion matrix
 cm = confusion_matrix(y_test, y_predicted)
